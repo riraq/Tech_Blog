@@ -1,0 +1,14 @@
+<!-- Loop over each object in the posts array -->
+{{#each posts as |post| }}
+<div class="card mb-4">
+    <div class="row">
+      <div class="col-md-6">{{post.title}}</div>
+      <div class="col-md-6 ms-auto">Posted by {{post.user.username}} on {{format_date post.date_created}}</div>
+    </div>
+  <p>
+    {{post.content}}
+  </p>
+</div>
+{{/each}}
+
+<button>New Post</button>
