@@ -1,7 +1,7 @@
 <div class=" card mb-4">
     <div class="row">
       <div class="col-md-6">{{posts.title}}</div>
-      <div class="col-md-6 ms-auto">Posted by {{posts.user.username}} on {{posts.date_created}}</div>
+      <div class="col-md-6 ms-auto">Posted by {{posts.user.username}} on {{format_date posts.date_created}}</div>
     </div>
   <p>
     {{posts.content}}
