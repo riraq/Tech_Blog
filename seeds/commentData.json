@@ -1,7 +1,8 @@
 [
     {
-        "username_comment": "username_comment",
-        "comment": "comment",
-        "date_created": "04/08/2021"
+        "username_comment": "user making the comment",
+        "comment": "what the comment would say",
+        "date_created": "04/08/2021",
+        "post_id": 1
     }
 ]

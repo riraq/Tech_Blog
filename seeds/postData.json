@@ -1,7 +1,8 @@
 [
     {
-        "title": "username",
-        "content": "password",
-        "date_created": "date_created"
+        "title": "This is the title of the post",
+        "content": "This is what an example post would look like",
+        "date_created": "04/09/2021",
+        "user_id": 1
     }
 ]
