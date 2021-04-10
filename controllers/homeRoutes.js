@@ -55,17 +55,24 @@ router.get('/post/:id', async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        // Find the logged in user based on the session ID
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exclude: ['password'] },
-            include: [{ model: Post }],
+        // Get all post and JOIN with user data
+        const postData = await Post.findAll({
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
         });
 
-        const user = userData.get({ plain: true });
-        console.log(user);
+        // Serialize data so the template can read it
+        const posts = postData.map((post) => post.get({ plain: true }));
+
+        // Pass serialized data and session flag into template
+        console.log(posts);
         res.render('dashboard', {
-            user,
-            logged_in: true
+            posts,
+            logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
